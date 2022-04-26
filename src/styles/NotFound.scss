@@ -1,0 +1,22 @@
+@use 'vars';
+
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: var(--hospital-green);
+  padding: 24px;
+  border-radius: 48px;
+}
+h1 {
+  font-size: 5em;
+  text-transform: uppercase;
+  color: #161616;
+}
+.center p {
+  color: #161616;
+  font-size: 24px;
+}

@@ -23,6 +23,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
     clean: true,
   },
   module: {rules},
@@ -33,6 +34,11 @@ module.exports = {
       template: './public/index.html'
     }),
     new MiniCssExtractPlugin(),
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true,
+    open: true,
+    port: 8080,
+  }
 
 }
