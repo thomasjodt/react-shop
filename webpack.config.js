@@ -1,32 +1,38 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const jsRules = {
-    test: /\.(js|jsx)$/,
-    exclude: /node_modules/,
-    use: { loader: 'babel-loader'}
+  test: /\.(m?js|jsx)$/,
+  exclude: /node_modules/,
+  use: { loader: 'babel-loader'}
 }
 const htmlRules = {
-    test: /\.html/,
-    use: { loader: 'html-loader'},
+  test: /\.html/,
+  use: { loader: 'html-loader'},
+}
+const cssRules = {
+  test: /\.s[ac]ss$/i,
+  use : ['style-loader', 'css-loader', 'sass-loader']
 }
 
-const rules = [jsRules, htmlRules]
+const rules = [jsRules, htmlRules, cssRules]
 
 module.exports = {
-    entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        clean: true,
-    },
-    module: {rules},
-    resolve: { extensions: ['.js', '.jsx'] },
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: './public/index.html'
-        }),
-    ]
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    clean: true,
+  },
+  module: {rules},
+  resolve: { extensions: ['.js', '.jsx'] },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './public/index.html'
+    }),
+    new MiniCssExtractPlugin(),
+  ]
 
 }
