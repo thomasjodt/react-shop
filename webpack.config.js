@@ -12,7 +12,7 @@ const htmlRules = {
   use: { loader: 'html-loader'},
 }
 const cssRules = {
-  test: /\.s[ac]ss$/i,
+  test: /\.(sc|sa|c)ss$/i,
   use : ['style-loader', 'css-loader', 'sass-loader']
 }
 
