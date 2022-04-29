@@ -15,8 +15,12 @@ const cssRules = {
   test: /\.(sc|sa|c)ss$/i,
   use : ['style-loader', 'css-loader', 'sass-loader']
 }
+const imageRules = {
+  test: /\.(png|jpg|svg|gif)$/,
+  type: 'asset'
+}
 
-const rules = [jsRules, htmlRules, cssRules]
+const rules = [jsRules, htmlRules, cssRules, imageRules]
 
 module.exports = {
   entry: './src/index.js',
@@ -27,7 +31,16 @@ module.exports = {
     clean: true,
   },
   module: {rules},
-  resolve: { extensions: ['.js', '.jsx'] },
+  resolve: { 
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@containers': path.resolve(__dirname, 'src/containers/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@icons': path.resolve(__dirname, 'src/assets/icons/'),
+      '@logos': path.resolve(__dirname, 'src/assets/logos/'),
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
