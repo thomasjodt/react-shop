@@ -1,10 +1,11 @@
-import React from 'react'
-import '../styles/NotFound.scss'
+import React from 'react';
 
-const NotFound = () => (
-  <div className='center'>
-    <h1>Error 404</h1>
-    <p>No se encuentra disponlibre</p>
-  </div>
-)
-export default NotFound
+const NotFound = () => {
+	return (
+		<div>
+			No encontrado, error 404.
+		</div>
+	);
+}
+
+export default NotFound;
