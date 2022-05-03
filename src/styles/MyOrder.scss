@@ -4,8 +4,14 @@
 	width: 360px;
 	padding: 24px;
 	box-sizing: border-box;
-	position: absolute;
+	position: fixed;
+	top: 60px;
 	right: 0;
+	bottom: 0;
+	overflow-y: auto;
+	border: 1px solid var(--very-light-pink);
+	background-color: #fff;
+	border-radius: 6px;
 }
 .title-container {
 	display: flex;
